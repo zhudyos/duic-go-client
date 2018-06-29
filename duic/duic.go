@@ -45,7 +45,7 @@ func Init() {
 	}()
 }
 
-// 返回一个 Bool 配置，如果配置不存在或者是一个错误的 Bool 值则将返回错误。
+// 返回一个 bool 配置，如果配置不存在或者是一个错误的 bool 值则将返回错误。
 func Bool(k string) (bool, error) {
 	v, err := getV(k)
 	if err != nil {
@@ -71,6 +71,24 @@ func Bool(k string) (bool, error) {
 // 返回一个 bool 配置，如果配置不存在或者是一个错误的 bool 值则将返回默认值。
 func Bool2(k string, defVar bool) bool {
 	v, err := Bool(k)
+	if err != nil {
+		return defVar
+	}
+	return v
+}
+
+// 返回一个 int 配置，如果配置不存在或者是一个错误的 int 值则将返回错误。
+func Int(k string) (int, error) {
+	v, err := Float64(k)
+	if err != nil {
+		return 0, err
+	}
+	return int(v), nil
+}
+
+// 返回一个 int 配置，如果配置不存在或者是一个错误的 int 值则将返回默认值。
+func Int2(k string, defVar int) int {
+	v, err := Int(k)
 	if err != nil {
 		return defVar
 	}

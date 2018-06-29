@@ -33,6 +33,25 @@ func TestBool2_2(t *testing.T) {
 	}
 }
 
+func TestInt(t *testing.T) {
+	v, err := Int("test.int")
+	if err != nil {
+		t.FailNow()
+	} else {
+		t.Logf("test.int: %v\n", v)
+	}
+}
+
+func TestInt2(t *testing.T) {
+	var defVar = -55555
+	v := Int2("test.int.xxxxx", defVar)
+	if v != defVar {
+		t.FailNow()
+	} else {
+		t.Logf("test.int.xxxxx: %v\n", v)
+	}
+}
+
 func TestInt64(t *testing.T) {
 	v, err := Int64("test.int")
 	if err != nil {
@@ -118,5 +137,24 @@ func TestString2_2(t *testing.T) {
 		t.FailNow()
 	} else {
 		t.Logf("test.string.xxxxx: %v\n", v)
+	}
+}
+
+func TestArray(t *testing.T) {
+	v, err := Array("test.array")
+
+	if err != nil {
+		t.FailNow()
+	} else {
+		t.Logf("test.array: %v\n", v)
+	}
+}
+
+func TestObject(t *testing.T) {
+	v, err := Object("test.object")
+	if err != nil {
+		t.FailNow()
+	} else {
+		t.Logf("test.object: %v\n", v)
 	}
 }
