@@ -1,0 +1,36 @@
+= duic 配置中心 go 语言客户端
+
+== Features
+
+* 热加载配置
+* 实时更新配置
+
+== Get Started
+
+----
+go get -u github.com/zhudyos/duic-go-client
+----
+
+初始化配置信息
+
+----
+duic.BaseUri = "https://duic.zhudy.io/api/v1"
+duic.Name = "unit-test"
+duic.Profiles = "test"
+duic.Init()
+----
+
+获取配置 API
+
+----
+duic.Bool("key")        // 获取一个 bool 配置
+duic.Int("key")         // 获取一个 int 配置
+duic.Float64("key")     // 获取一个 float64 配置
+duic.String("key")      // 获取一个 string 配置
+duic.Array("key")       // 获取一个数组配置
+duic.Object("key")      // 获取一个对象配置
+----
+
+== See also
+
+* https://github.com/zhudyos/duic[duic 配置中心]
